@@ -1,0 +1,27 @@
+/********************************************************
+* Scope out some bootstrap
+*********************************************************/
+.bootstrap {
+  @import "../../vendor/twitter/bootstrap/less/bootstrap";
+  @import "../../vendor/fontawesome/Font-Awesome/less/font-awesome";
+}
+
+.bootstrap input[type="text"],
+.bootstrap input[type="submit"],
+.bootstrap input[type="password"],
+.bootstrap textarea {
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+/********************************************************
+* Break the stylesheets into logically named files
+*********************************************************/
+@import "admin/menu";
+@import "admin/faculty";
+@import "admin/acf";
+
+.wp_themeSkin span.mceText {
+  line-height: 1.1em;
+}

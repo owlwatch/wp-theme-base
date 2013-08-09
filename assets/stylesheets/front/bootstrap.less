@@ -1,0 +1,65 @@
+/*!
+ * Bootstrap v2.3.1
+ *
+ * Copyright 2012 Twitter, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the love in the world @twitter by @mdo and @fat.
+ */
+
+@bootstrap_dir: "../../../vendor/twitter/bootstrap/less";
+
+// Core variables and mixins
+@import "bootstrap-variables.less"; // Modify this for custom colors, font-sizes, etc
+@import "@{bootstrap_dir}/mixins.less";
+
+// CSS Reset
+@import "@{bootstrap_dir}/reset.less";
+
+// Grid system and page structure
+@import "@{bootstrap_dir}/scaffolding.less";
+@import "@{bootstrap_dir}/grid.less";
+@import "@{bootstrap_dir}/layouts.less";
+
+// Base CSS
+@import "@{bootstrap_dir}/type.less";
+@import "@{bootstrap_dir}/code.less";
+@import "@{bootstrap_dir}/forms.less";
+@import "@{bootstrap_dir}/tables.less";
+
+// Components: common
+//@import "@{bootstrap_dir}/sprites.less";
+@import "@{bootstrap_dir}/dropdowns.less";
+@import "@{bootstrap_dir}/wells.less";
+@import "@{bootstrap_dir}/component-animations.less";
+@import "@{bootstrap_dir}/close.less";
+
+// Components: Buttons & Alerts
+// @import "@{bootstrap_dir}/buttons.less";
+@import "@{bootstrap_dir}/button-groups.less";
+@import "@{bootstrap_dir}/alerts.less"; // Note: alerts share common CSS with buttons and thus have styles in buttons.less
+
+// Components: Nav
+@import "@{bootstrap_dir}/navs.less";
+// @import "navbar.less";
+@import "@{bootstrap_dir}/breadcrumbs.less";
+@import "@{bootstrap_dir}/pagination.less";
+@import "@{bootstrap_dir}/pager.less";
+
+// Components: Popovers
+@import "@{bootstrap_dir}/modals.less";
+@import "@{bootstrap_dir}/tooltip.less";
+@import "@{bootstrap_dir}/popovers.less";
+
+// Components: Misc
+@import "@{bootstrap_dir}/thumbnails.less";
+@import "@{bootstrap_dir}/media.less";
+@import "@{bootstrap_dir}/labels-badges.less";
+@import "@{bootstrap_dir}/progress-bars.less";
+@import "@{bootstrap_dir}/accordion.less";
+@import "@{bootstrap_dir}/carousel.less";
+// @import "hero-unit.less";
+
+// Utility classes
+@import "@{bootstrap_dir}/utilities.less"; // Has to be last to override when necessary

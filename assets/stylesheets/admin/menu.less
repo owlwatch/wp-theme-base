@@ -1,0 +1,62 @@
+
+/********************************************************
+* Lets widen that admin menu (Wordpress 3.5.3)
+*********************************************************/
+#adminmenuback, #adminmenuwrap, #adminmenu, #adminmenu .wp-submenu {
+  width: 170px;
+}
+#adminmenu .wp-submenu {
+  left: 171px;
+}
+#adminmenu .wp-menu-arrow,
+#adminmenu li.wp-not-current-submenu .wp-menu-arrow{
+  -webkit-transform: translate(170px, 0);
+     -moz-transform: translate(170px, 0);
+      -ms-transform: translate(170px, 0);
+       -o-transform: translate(170px, 0);
+          transform: translate(170px, 0);
+}
+
+
+#wpcontent, #wpfooter {
+  margin-left: 190px;
+}
+
+
+/********************************************************
+* Custom Admin Menu Icon Mixin
+*********************************************************/
+.custom-admin-menu-icon(@position, @name){
+  #adminmenu {
+    #menu-posts-@{name} {
+      a.menu-icon-post {
+        div.wp-menu-image {
+          background: url("../images/admin-icons.png") @position * -28px 0px no-repeat;
+        }
+        &:hover,  &.wp-has-current-submenu, &.current {
+          .wp-menu-image {
+            background-position: @position * -28px -28px;
+          }
+        }
+      }
+      &:hover {
+        a.menu-icon-post {
+          .wp-menu-image {
+            background-position: @position * -28px -28px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/********************************************************
+* Add our custom icons
+*********************************************************/
+.custom-admin-menu-icon( 0, faculty );
+.custom-admin-menu-icon( 1, news-item );
+.custom-admin-menu-icon( 2, department );
+.custom-admin-menu-icon( 3, research-project );
+.custom-admin-menu-icon( 4, research-highlight );
+.custom-admin-menu-icon( 5, video );
+.custom-admin-menu-icon( 6, announcement );
