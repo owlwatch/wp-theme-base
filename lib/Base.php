@@ -20,8 +20,8 @@ class Theme_Base extends Snap_Wordpress_Plugin
     Snap::inst('Theme_Shortcodes');
 		
 		// initialize our views
-    Snap_Wordpress_Template::registerPath('theme.front', Theme_DIR.'/tmpl/front');
-    Snap_Wordpress_Template::registerPath('theme.admin', Theme_DIR.'/tmpl/admin');
+    Snap_Wordpress_Template::registerPath('theme.front', THEME_DIR.'/tmpl/front');
+    Snap_Wordpress_Template::registerPath('theme.admin', THEME_DIR.'/tmpl/admin');
     
     if( is_admin() ){
       Snap::inst('Theme_Admin');
@@ -53,15 +53,15 @@ class Theme_Base extends Snap_Wordpress_Plugin
   }
   
   /**
-	 * @wp.filter
-	 */
+   * @wp.filter
+   */
 	public function mce_css($css)
 	{
 		$handle = 'theme-editor';
 		$less = WPLessPlugin::getInstance();  
 		wp_enqueue_style($handle, get_template_directory_uri().'/assets/stylesheets/editor.less');
-    Snap::inst('Theme_Customize')->register_less_vars( $less );
-    
+		Snap::inst('Theme_Customize')->register_less_vars( $less );
+	
 		$less->processStylesheets();
 		global $wp_styles;
 		$src = $wp_styles->registered[$handle]->src;
