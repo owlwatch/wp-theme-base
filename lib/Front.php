@@ -16,7 +16,7 @@ class Theme_Front extends Snap_Wordpress_Plugin
   {
     wp_register_script('theme-cookie', THEME_URI.'/assets/javascripts/jquery.cookie.js', array('jquery'));
     wp_register_script('theme-modernizr', THEME_URI.'/assets/javascripts/modernizr.js');
-    wp_register_script('theme-bootstrap', THEME_URI.'/vendor/twitter/bootstrap/docs/assets/js/bootstrap.min.js', array('jquery'));
+    wp_register_script('theme-bootstrap', THEME_URI.'/vendor/twbs/bootstrap/dist/js/bootstrap.min.js', array('jquery'));
     wp_register_script('theme-rotator', THEME_URI.'/assets/javascripts/rotator.js', array('jquery'));
     wp_register_script('theme-scrollto', THEME_URI.'/assets/javascripts/jquery.scrollto.min.js', array('jquery'));
   }
