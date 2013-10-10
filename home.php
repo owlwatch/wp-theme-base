@@ -1,6 +1,5 @@
 <?php
 get_header();
-get_sidebar('breadcrumbs');
 
 $title = "News";
 if( ($page_for_posts = get_option('page_for_posts', false) ) ){

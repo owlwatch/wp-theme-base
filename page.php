@@ -1,10 +1,6 @@
 <?php
-/**
- * Template Name: Page with Full Sidebar
- */
 the_post();
 get_header();
-get_sidebar('breadcrumbs');
 $share_bar = get_field('share_bar');
 ?>
 <div class="grid-with-gutters">

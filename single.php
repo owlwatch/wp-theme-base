@@ -8,7 +8,6 @@ if( has_term(array('student-profile','alumni-story'), 'category') )
 
 the_post();
 get_header();
-get_sidebar('breadcrumbs');
 ?>
 <article class="primary full-article grid-with-gutters">
   <div class="row">
