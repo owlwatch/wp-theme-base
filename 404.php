@@ -2,23 +2,15 @@
 the_post();
 get_header();
 ?>
-<article class="primary full-article grid-with-gutters">
-  <h1 class="page-title">
-    <?= get_field('404_title', 'option') ?>
-  </h1>
-  <div class="row">
-    <div class="span8">
-      <?= get_field('404_page', 'option') ?>
+<div class="bd">
+  <div class="container">
+    <h1 class="page-title">
+    Page Not Found
+    </h1>
+    <div class="the-content">
+      <p>We could not find the page you were looking for.</p>
     </div>
-    <div class="span4">
-      <div class="sidebar right-sidebar">
-        <?php
-        dynamic_sidebar('404');
-        ?>
-      </div>
-    </div>
-  </div>
-</article>
+</div>
 <?php
 get_footer();
 ?>

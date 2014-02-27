@@ -3,12 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title><?php bloginfo('name'); ?> | <?php is_front_page() ? bloginfo('description') : wp_title(''); ?></title>
-    <?php /*
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    */ ?>
-    <? wp_head() ?>
+    <?php
+    wp_head();
+    ?>
     <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
   <body <? body_class() ?> itemscope itemtype="http://schema.org/WebPage">
@@ -24,6 +25,4 @@
       </div>
     </header>
     
-    <div class="bd">
-      <div class="container">
       

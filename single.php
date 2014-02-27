@@ -9,41 +9,25 @@ if( has_term(array('student-profile','alumni-story'), 'category') )
 the_post();
 get_header();
 ?>
-<article class="primary full-article grid-with-gutters">
-  <div class="row">
-    <div class="span8">
-      <h1 class="page-title">
-        <?php the_title() ?>
-      </h1>
-      <div class="date">
-        <?php the_date() ?>
-      </div>
-      
-      <div class="share-bar">
-        <?php get_template_part('element','share') ?>
-      </div>
-      
-      <div class="the-content">
-        <? the_content() ?>
-      </div>
-      
-      <div class="taxonomy-lists">
-        <?php get_template_part('taxonomy-list', 'category'); ?>
-        <?php get_template_part('taxonomy-list', 'post_tag'); ?>
-      </div>
-      
-      <?php get_template_part('element', 'postnav'); ?>
-      
+<div class="bd">
+  <div class="container">
+    <h1 class="page-title">
+      <?php the_title() ?>
+    </h1>
+    <div class="date">
+      <?php the_date() ?>
     </div>
-    <div class="span4">
-      <div class="sidebar right-sidebar">
-        <?php
-        dynamic_sidebar('blog');
-        ?>
-      </div>
+      
+    <div class="the-content">
+      <? the_content() ?>
+    </div>
+      
+    <div class="taxonomy-lists">
+      <?php get_template_part('taxonomy-list', 'category'); ?>
+      <?php get_template_part('taxonomy-list', 'post_tag'); ?>
     </div>
   </div>
-</article>
+</div>
 <?php
 get_footer();
 ?>

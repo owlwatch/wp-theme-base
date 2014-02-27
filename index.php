@@ -1,13 +1,13 @@
 <?php
 get_header();
 ?>
-<div class="row">
+<div class="bd">
+  <div class="container">
   
-  <?php if( is_search() ){ ?>
-  <h1 class="page-title">Search Results</h1>
-  <?php } ?>
-  
-  <div class="span8">
+    <?php if( is_search() ){ ?>
+    <h1 class="page-title">Search Results</h1>
+    <?php } ?>
+    
     <?php
     while( have_posts() ){
       the_post();
@@ -23,13 +23,6 @@ get_header();
       wp_paginate();
     }
     ?>
-  </div>
-  <div class="span4">
-    <div class="sidebar right-sidebar">
-      <?php
-      dynamic_sidebar('right');
-      ?>
-    </div>
   </div>
 </div>
 <?php

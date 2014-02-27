@@ -28,33 +28,24 @@ else {
 }
 
 ?>
-<div class="grid-with-gutters">
-  <div class="row">
-    <div class="span8">
-      <h1 class="page-title"><?= $title ?></h1>
-      <?php
-      if( have_posts() ) while( have_posts() ){
-        the_post();
-        get_template_part('list-entry', get_post_format());
-      }
-      else {
-        ?>
-      <p>No articles found.</p> 
-        <?php
-      }
-      
-      if( function_exists('wp_paginate') ){
-        wp_paginate();
-      }
-      ?>
-    </div>
-    <div class="span4">
-      <div class="sidebar right-sidebar">
-        <?php
-        dynamic_sidebar('blog');
-        ?>
-      </div>
-    </div>
+<div class="bd">
+  <div class="container">
+		<h1 class="page-title"><?= $title ?></h1>
+		<?php
+		if( have_posts() ) while( have_posts() ){
+			the_post();
+			get_template_part('list-entry', get_post_format());
+		}
+		else {
+			?>
+		<p>No articles found.</p> 
+			<?php
+		}
+		
+		if( function_exists('wp_paginate') ){
+			wp_paginate();
+		}
+		?>
   </div>
 </div>
 

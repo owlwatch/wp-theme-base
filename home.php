@@ -12,34 +12,24 @@ global $post;
 $count = 0;
 $total = 4;
 ?>
-<h1 class="page-title"><?= $title ?></h1>
-
-<?php
-/* Slideshow (if enabled) */
-if( get_field('enable_slideshow') )
-  Snap::inst('Theme_View_Front_Slideshow')
-    ->render(get_the_ID(), 'large');
-?>
-<div class="grid-with-gutters">
-  <div class="row">
-    <div class="span8">
-      <?php
-      while( have_posts() ){
-        the_post();
-        get_template_part('list-entry', get_post_format());
-      }
-      if( function_exists('wp_paginate') ){
-        wp_paginate();
-      }
+<div class="bd">
+  <div class="container">
+    <h1 class="page-title"><?= $title ?></h1>
+    <?php
+    while( have_posts() ){
+      the_post();
       ?>
-    </div>
-    <div class="span4">
-      <div class="sidebar right-sidebar">
-        <?php
-        dynamic_sidebar('blog');
-        ?>
-      </div>
-    </div>
+      <h3><?php the_title(); ?></h3>
+      <div class="excerpt"><?php the_excerpt(); ?></div>
+      <?php
+    }
+    ?>
+    
+    <?php
+    if( function_exists('wp_paginate') ){
+      wp_paginate();
+    }
+    ?>
   </div>
 </div>
 

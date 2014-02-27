@@ -23,12 +23,8 @@ class Theme_Base extends Snap_Wordpress_Plugin
     Snap_Wordpress_Template::registerPath('theme.front', THEME_DIR.'/tmpl/front');
     Snap_Wordpress_Template::registerPath('theme.admin', THEME_DIR.'/tmpl/admin');
     
-    if( is_admin() ){
-      Snap::inst('Theme_Admin');
-    }
-    else {
-      Snap::inst('Theme_Front');
-    }
+		Snap::inst( is_admin() ? 'Theme_Admin' : 'Theme_Front' );
+		
   }
   
   /**
@@ -36,6 +32,8 @@ class Theme_Base extends Snap_Wordpress_Plugin
    */
   protected function init_wp_less()
   {
+		if( !class_exists( 'WPLessPlugin') ) return;
+		$less = WPLessPlugin::getInstance();  	
     add_action('admin_enqueue_scripts', array( $lessPlugin, 'processStylesheets') );
   }
   
@@ -46,10 +44,9 @@ class Theme_Base extends Snap_Wordpress_Plugin
    */
   public function wp_enqueue_scripts()
   {
-    if( class_exists('WPLessPlugin') ){
-      $less = WPLessPlugin::getInstance();
-      Snap::inst('Theme_Customize')->register_less_vars( $less );
-    }
+    if( !class_exists('WPLessPlugin' ) ) return;
+		$less = WPLessPlugin::getInstance();
+		Snap::inst('Theme_Customize')->register_less_vars( $less );
   }
   
   /**
@@ -57,6 +54,8 @@ class Theme_Base extends Snap_Wordpress_Plugin
    */
 	public function mce_css($css)
 	{
+		if( !class_exists('WPLessPlugin' ) ) return;
+		
 		$handle = 'theme-editor';
 		$less = WPLessPlugin::getInstance();  
 		wp_enqueue_style($handle, get_template_directory_uri().'/assets/stylesheets/editor.less');
