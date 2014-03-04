@@ -1,5 +1,4 @@
 <?php
-
 define( 'THEME_DIR', dirname(__FILE__) );
 define( 'THEME_URI', get_template_directory_uri() );
 define( 'THEME_VENDOR_DIR', THEME_DIR.'/vendor' );
