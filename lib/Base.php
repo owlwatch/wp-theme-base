@@ -28,23 +28,13 @@ class Theme_Base extends Snap_Wordpress_Plugin
   }
   
   /**
-   * Init the wp-less plugin
-   */
-  protected function init_wp_less()
-  {
-		if( !class_exists( 'WPLessPlugin') ) return;
-		$less = WPLessPlugin::getInstance();  	
-    add_action('admin_enqueue_scripts', array( $lessPlugin, 'processStylesheets') );
-  }
-  
-  /**
    * Register variables
    * @wp.action       wp_enqueue_scripts
    * @wp.priority     10
    */
   public function wp_enqueue_scripts()
   {
-    if( !class_exists('WPLessPlugin' ) ) return;
+    if( !class_exists('WPLessPlugin') || !class_exists('Theme_Customize') ) return;
 		$less = WPLessPlugin::getInstance();
 		Snap::inst('Theme_Customize')->register_less_vars( $less );
   }
@@ -54,18 +44,11 @@ class Theme_Base extends Snap_Wordpress_Plugin
    */
 	public function mce_css($css)
 	{
-		if( !class_exists('WPLessPlugin' ) ) return;
+		if( !class_exists('WPLessPlugin') || !class_exists('Theme_Customize') ) return;
 		
-		$handle = 'theme-editor';
 		$less = WPLessPlugin::getInstance();  
-		wp_enqueue_style($handle, get_template_directory_uri().'/assets/stylesheets/editor.less');
 		Snap::inst('Theme_Customize')->register_less_vars( $less );
-	
-		$less->processStylesheets();
-		global $wp_styles;
-		$src = $wp_styles->registered[$handle]->src;
-		wp_dequeue_style($handle);
-		return $src;
+		return $css;
 	}
   
   /**
@@ -98,7 +81,7 @@ class Theme_Base extends Snap_Wordpress_Plugin
    */
   protected function register_sidebars()
   {
-    $this->_register_sidebar('right', 'Right');
+    //$this->_register_sidebar('right', 'Right');
   }
   
   protected function _register_sidebar($id, $name, $heading='h3')

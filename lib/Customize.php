@@ -55,12 +55,11 @@ class Theme_Customize extends Snap_Wordpress_Plugin
   
   public function add_sections()
   {
-    $this->wp_customize->add_section('wse', array(
-      'title' => 'WSE Settings'
+    /*
+    $this->wp_customize->add_section('section-id', array(
+      'title' => 'Section Name'
     ));
-    $this->wp_customize->add_section('social', array(
-      'title' => 'Social Links'
-    ));
+    */
   }
   
   public function add_settings()
