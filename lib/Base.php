@@ -7,7 +7,7 @@ class Theme_Base extends Snap_Wordpress_Plugin
   {
     parent::__construct();
 		
-		$this->init_wp_less();
+    //$this->init_wp_less();
     
     $this->register_post_types();
     $this->register_taxonomies();
