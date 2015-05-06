@@ -1,16 +1,31 @@
 Wordpress Base Theme
 ====================
 
-This is the base skeleton for our bootstrap based theme.
+This is the base skeleton for our bootstrap based theme. Some code is derived from the http://roots.io/sage project - namely the Theme Wrapper, the Asset management, and the gulp build file.
 
 Requirements
 ============
 
-You need the Snap library and the wp-less library installed.
+This theme requires the Snap plugin.
 
 https://github.com/fabrizim/Snap
-https://github.com/oncletom/wp-less
 
-Alternately, you can include them in the vendor directory and
-include them as part of the theme if you want to encapsulate
-the versions.
+For development, you will also need to ensure the following is installed:
+ - nodejs
+ - npmjs
+ - bower
+
+Installation
+============
+
+To get started, clone this repo into the `themes` directory of your Wordpress install. In the new theme directory, you need to run:
+
+    npm install
+    bower install
+
+This should install everything you need to develop and build the theme.
+
+Development and Building
+========================
+
+See https://github.com/roots/sage for more information.
