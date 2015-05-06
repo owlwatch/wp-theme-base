@@ -1,30 +1,14 @@
-<?php
-get_header();
-?>
-<div class="bd">
-  <div class="container">
-  
-    <?php if( is_search() ){ ?>
-    <h1 class="page-title">Search Results</h1>
-    <?php } ?>
-    
-    <?php
-    while( have_posts() ){
-      the_post();
-      ?>
-      <h3><?php the_title(); ?></h3>
-      <div class="excerpt"><?php the_excerpt(); ?></div>
-      <?php
-    }
-    ?>
-    
-    <?php
-    if( function_exists('wp_paginate') ){
-      wp_paginate();
-    }
-    ?>
+<?php get_template_part('templates/page', 'header'); ?>
+
+<?php if (!have_posts()) : ?>
+  <div class="alert alert-warning">
+    <?php _e('Sorry, no results were found.', 'sage'); ?>
   </div>
-</div>
-<?php
-get_footer();
-?>
+  <?php get_search_form(); ?>
+<?php endif; ?>
+
+<?php while (have_posts()) : the_post(); ?>
+  <?php get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
+<?php endwhile; ?>
+
+<?php the_posts_navigation(); ?>

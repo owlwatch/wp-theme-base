@@ -6,6 +6,7 @@ class Theme_Admin extends Snap_Wordpress_Plugin
   public function __construct()
   {
     parent::__construct();
+    $this->assets = new Snap_Wordpress_Theme_Assets( get_template_directory() );
   }
   
   /**
@@ -13,7 +14,7 @@ class Theme_Admin extends Snap_Wordpress_Plugin
    */
   public function enqueue_styles()
   {
-    wp_enqueue_style('theme-admin', THEME_URI.'/assets/stylesheets/admin.less');
+    //$this->assets->style('styles/admin.css');
   }
   
   /**
