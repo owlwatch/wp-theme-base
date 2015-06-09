@@ -1,18 +1,11 @@
 <?php
-the_post();
-get_header();
-?>
-<div class="bd">
-  
-  <div class="container">
-    <h1 class="page-title">
-      <?php the_title() ?>
-    </h1>
-      
-    <div clas="the-content">
-      <?php the_content() ?>
-    </div>
-      
-  </div>
-</div>
-<?php get_footer() ?>
+while( have_posts() ){
+  the_post();
+  ?>
+<article <?php post_class() ?>>
+  <?php
+  get_template_part('templates/content/single', get_post_type() );
+  ?>
+</article>
+  <?php
+}

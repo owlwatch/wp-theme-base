@@ -34,4 +34,12 @@ class Theme_Front extends Snap_Wordpress_Plugin
     return '<div class="media video"><div class="responsive-media" style="padding-bottom:'.$p.'%">'.$html.'</div></div>';
   }
   
+  /**
+   * @wp.filter
+   */
+  public function get_search_form() {
+    $form = '';
+    locate_template('/templates/searchform.php', true, false);
+    return $form;
+  }
 }
